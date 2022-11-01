@@ -7,15 +7,17 @@ import cv2
 import numpy as np
 
 test_rate = 0.2
-src_test = "./test/"
+src_test = "./test/" # testset of Intel images, heritage
 src_test_list = os.listdir(src_test)
 
-if not os.path.exists("test_small/"):
-    os.mkdir("test_small/")
-if not os.path.exists("test_small/train/"):
-    os.mkdir("test_small/train/")
-if not os.path.exists("test_small/test/"):
-    os.mkdir("test_small/test/")
+dst_root = "test_small/"
+
+if not os.path.exists(dst_root):
+    os.mkdir(dst_root)
+if not os.path.exists(dst_root + "train/"):
+    os.mkdir(dst_root + "train/")
+if not os.path.exists(dst_root + "test/"):
+    os.mkdir(dst_root + "test/")
 
 def read_img(path):
     '''read image by cv2 or from lmdb
